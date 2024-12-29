@@ -1,24 +1,27 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.70'
+    ext.kotlin_version = '1.8.0' // 更新为更高版本，确保与最新 Gradle 和插件兼容
     repositories {
-        jcenter()
-        google()
+        google() // 推荐将 google 放在第一位，保证优先查找最新版本
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        // 更新 Android Gradle 插件版本
+        classpath 'com.android.tools.build:gradle:8.1.0'
+        
+        // 更新 Kotlin Gradle 插件版本
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
-
 allprojects {
     repositories {
-        jcenter()
         google()
+        mavenCentral() // 推荐使用 mavenCentral 而非 jcenter，因为 jcenter 已逐步停止维护
     }
 }
 
